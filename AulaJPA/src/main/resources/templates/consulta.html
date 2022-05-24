@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Consulta</title>
+    </head>
+
+    <body>
+        <table> 
+           <thead>
+               <tr>
+                  <th>Id</th>
+                  <th>Nome</th>
+                  <th>Email</th>
+                  <th>Ações</th>
+                </tr>
+           </thead>   
+           <tbody>
+               <tr th:each="contato: ${contatos}"> 
+                 <td th:text="*{contato.id}" />
+                 <td th:text="*{contato.nome}" />
+                 <td th:text="*{contato.email}" />  
+                 <td> 
+                     <a th:href="@{'/consulta/'+${contato.id}}">Editar</a>
+                     <a th:href="@{'/excluir/'+${contato.id}}">Excluir</a>  
+                 </td>              
+               </tr>
+           </tbody>
+        </table>     
+    </body>
+</html>
